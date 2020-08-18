@@ -10,25 +10,26 @@
 
     <repositories>
         <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/repositories/releases/</url>
-        </repository>
-        <repository>
             <id>local_repo</id>
             <url>file://${project.basedir}/repo/</url>
+        </repository>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
     <dependencies>
         <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>1.6.2-R1.0</version>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.16.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.acrobot.chestshop</groupId>
-            <artifactId>chestshop</artifactId>
-            <version>3.64</version>
+            <groupId>com.Acrobot</groupId>
+            <artifactId>ChestShop</artifactId>
+            <version>3.11</version>
         </dependency>
         <dependency>
             <groupId>me.muizers.notifications</groupId>
