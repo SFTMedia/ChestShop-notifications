@@ -5,8 +5,6 @@ import com.Acrobot.Breeze.Utils.MaterialUtil;
 import com.Acrobot.ChestShop.Economy.Economy;
 import com.Acrobot.ChestShop.Events.TransactionEvent;
 import com.google.common.base.Joiner;
-import me.muizers.Notifications.Notification;
-import me.muizers.Notifications.Notifications;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -24,10 +22,6 @@ public class TransactionListener implements Listener {
 
     private Notifications notifications;
 
-    public TransactionListener() {
-        notifications = (Notifications) Bukkit.getPluginManager().getPlugin("Notifications");
-    }
-
     @EventHandler(priority = EventPriority.MONITOR)
     public void onBuyTransaction(TransactionEvent event) {
         if (event.getTransactionType() != BUY) {
@@ -42,8 +36,7 @@ public class TransactionListener implements Listener {
                 .replace("%owner", event.getOwner().getName())
                 .replace("%price", Economy.formatBalance(event.getPrice()));
 
-        Notification notification = new Notification("ChestShop", firstLine, secondLine);
-        notifications.showNotification(notification);
+        Notifications.sendNotification(event.getOwner(),firstLine,secondLine);
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
@@ -60,8 +53,7 @@ public class TransactionListener implements Listener {
                 .replace("%owner", event.getOwner().getName())
                 .replace("%price", Economy.formatBalance(event.getPrice()));
 
-        Notification notification = new Notification("ChestShop", firstLine, secondLine);
-        notifications.showNotification(notification);
+        Notifications.sendNotification(event.getOwner(),firstLine,secondLine);
     }
 
     private static String parseItemInformation(ItemStack[] items) {

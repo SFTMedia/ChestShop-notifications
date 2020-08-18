@@ -4,15 +4,19 @@ import com.Acrobot.Breeze.Configuration.Configuration;
 import com.acrobot.chestshop.notifications.properties.Messages;
 import com.acrobot.chestshop.notifications.properties.Properties;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.HashMap;
 
 /**
  * @author Acrobot
  */
 public class Notifications extends JavaPlugin {
     private static File dataFolder;
+    private static HashMap<OfflinePlayer,ArrayList<String[]>> offlineNotifications;
 
     public void onEnable() {
         dataFolder = getDataFolder();
@@ -46,5 +50,15 @@ public class Notifications extends JavaPlugin {
         }
 
         return file;
+    }
+    public static void sendNotification(OfflinePlayer player,String firstLine,String secondLine) {
+        if(player.isOnline()){
+            
+        } else {
+            if(!offlineNotifications.hasKey(player)){
+                offlineNotifications.put(player,new ArrayList<String[]>());
+            }
+            offlineNotifications.get(player).add(new String[]{firstLine,secondLine})
+        }
     }
 }

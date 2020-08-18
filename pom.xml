@@ -31,11 +31,6 @@
             <artifactId>ChestShop</artifactId>
             <version>3.11</version>
         </dependency>
-        <dependency>
-            <groupId>me.muizers.notifications</groupId>
-            <artifactId>notifications</artifactId>
-            <version>1.4</version>
-        </dependency>
     </dependencies>
 
     <build>
