@@ -1,3 +1,8 @@
+# NOTE TO OTHERS LOOKING FOR THIS
+# USE [ChestShopNotifier](https://github.com/ChestShop-authors/ChestShopNotifier) Instead, it works with 1.16
+
+
+
 ChestShop notifications
 ================================
 
